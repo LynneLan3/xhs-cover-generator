@@ -1,8 +1,7 @@
 'use strict';
 
 window.App = (function () {
-  // 配置后端API地址
-  const apiBase = window.API_BASE || 'http://localhost:8000';  // 可以通过window.API_BASE配置
+  const apiBase = '/api';  // 配置后端API地址
 
   async function fetchStyles() {
     const res = await fetch(`${apiBase}/styles`);
@@ -169,5 +168,3 @@ window.App = (function () {
 
   return { init };
 })();
-
-

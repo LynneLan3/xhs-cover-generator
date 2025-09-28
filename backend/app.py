@@ -4,13 +4,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 import json
-from pathlib import Path
+import os
 from services.deepseek_service import generate_cover_html
 from services.cache_service import cache_service
 
-ROOT = Path(__file__).resolve().parents[1]
-TEMPLATES_JSON = ROOT / 'templates.json'
-FRONTEND_DIR = ROOT / 'frontend'
+TEMPLATES_JSON = os.path.join(os.path.dirname(__file__), 'templates.json')
+FRONTEND_DIR = os.path.join(os.path.dirname(__file__), 'frontend')
 
 app = FastAPI(title='XHS Banner Generator API')
 
