@@ -8,8 +8,8 @@ import os
 from services.deepseek_service import generate_cover_html
 from services.cache_service import cache_service
 
-TEMPLATES_JSON = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'templates.json')
-FRONTEND_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'frontend')
+TEMPLATES_JSON = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'templates.json')
+FRONTEND_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'frontend')
 
 app = FastAPI(title='XHS Banner Generator API')
 
@@ -32,9 +32,13 @@ class GeneratePayload(BaseModel):
 
 
 def load_templates():
-    with TEMPLATES_JSON.open('r', encoding='utf-8') as f:
-        data = json.load(f)
-    return data['templates']
+    try:
+        with open(TEMPLATES_JSON, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        return data['templates']
+    except Exception as e:
+        print(f"Error loading templates: {e}")
+        return []
 
 
 @app.get('/')
