@@ -8,8 +8,8 @@ import os
 from services.deepseek_service import generate_cover_html
 from services.cache_service import cache_service
 
-TEMPLATES_JSON = os.path.join(os.path.dirname(__file__), 'templates.json')
-FRONTEND_DIR = os.path.join(os.path.dirname(__file__), 'frontend')
+TEMPLATES_JSON = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'templates.json')
+FRONTEND_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'frontend')
 
 app = FastAPI(title='XHS Banner Generator API')
 
