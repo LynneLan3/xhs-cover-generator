@@ -1,0 +1,21 @@
+/* 基础占位样式，便于本地调试；可按需扩展 */
+:root {
+  --primary: #111827;
+}
+
+body {
+  color: var(--primary);
+}
+
+button {
+  background: #111827;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: .9;
+}
+

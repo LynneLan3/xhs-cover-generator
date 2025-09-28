@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Project specific
+backend/cache/*.json
+test_output.html
+
+# Environment variables
+.env
+
+# System files
+.DS_Store
+Thumbs.db
