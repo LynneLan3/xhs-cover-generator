@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>小红书封面生成器</title>
-  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 </head>
 <body>
@@ -21,7 +21,7 @@
       <select id="style" name="style"></select>
 
       <label class="row">
-        <input type="checkbox" id="useAI" /> 使用AI生成
+        <input type="checkbox" id="useAI" checked /> 使用AI生成
       </label>
 
       <button type="submit">生成</button>
@@ -54,7 +54,11 @@
     </div>
   </div>
 
-  <script src="/static/js/main.js"></script>
+  <!-- 配置后端API地址 -->
+  <script>
+    window.API_BASE = 'http://localhost:8000';  // 在部署时需要修改为实际的后端地址
+  </script>
+  <script src="js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       window.App && window.App.init && window.App.init();

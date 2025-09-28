@@ -1,7 +1,8 @@
 'use strict';
 
 window.App = (function () {
-  const apiBase = '';  // 使用相对路径，因为前后端现在在同一个服务器上
+  // 配置后端API地址
+  const apiBase = window.API_BASE || 'http://localhost:8000';  // 可以通过window.API_BASE配置
 
   async function fetchStyles() {
     const res = await fetch(`${apiBase}/styles`);

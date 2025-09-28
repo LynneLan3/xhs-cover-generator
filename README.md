@@ -1,44 +1,56 @@
-## 小红书封面生成器（基础框架）
+# 小红书封面生成器 (XHS Cover Generator)
 
-### 快速开始
+基于AI的小红书封面生成工具，支持多种风格模板，快速生成吸引眼球的封面图片。
 
-1) 安装依赖
+## 功能特点
 
+- 🎨 多种封面风格模板
+- 🚀 快速生成封面
+- 💾 智能缓存机制
+- 🖼 实时预览效果
+- 📱 响应式设计
+
+## 技术栈
+
+- 前端：HTML, CSS, JavaScript
+- 后端：Python, FastAPI
+- AI：DeepSeek API
+
+## 快速开始
+
+1. 安装依赖：
 ```bash
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 
-2) 启动后端
-
+2. 启动后端服务：
 ```bash
-uvicorn backend.app:app --reload --port 8000
+cd backend
+uvicorn app:app --host 0.0.0.0 --port 8000
 ```
 
-3) 打开前端
+3. 访问前端页面：
+打开 `frontend/index.html`
 
-直接在浏览器中打开 `frontend/index.html`（建议用VSCode Live Server或任意静态HTTP服务）
+## 使用说明
 
-4) 使用AI生成（可选）
+1. 输入标题和作者
+2. 选择喜欢的封面风格
+3. 点击生成按钮
+4. 等待生成完成
+5. 下载或复制生成的封面
 
-在终端设置环境变量后再启动后端：
+## 缓存机制
 
-```bash
-export DEEPSEEK_API_KEY="你的密钥"
-# 可选：
-# export DEEPSEEK_API_BASE="https://api.deepseek.com"
-# export DEEPSEEK_MODEL="deepseek-chat"
-uvicorn backend.app:app --reload --port 8000
-```
+- 相同的标题和风格组合会启用缓存
+- 缓存有效期为24小时
+- 支持自动清理过期缓存
 
-前端可在控制台设置 `window.useAI = true` 后提交表单，即会调用 `/generate/ai` 接口。
+## 贡献指南
 
-### 现有接口
+欢迎提交Issue和Pull Request！
 
-- GET `/styles`：返回可选风格（从 `templates.json` 读取）
-- POST `/generate/preview`：根据标题/作者/风格返回占位HTML（后续可接入AI生成）
+## 许可证
 
-### 后续计划
-
-- 集成 DeepSeek/其他模型，产出真实HTML/CSS/JS
-- 丰富前端预览、下载为图片等能力
+MIT License
 
